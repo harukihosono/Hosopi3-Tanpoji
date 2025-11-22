@@ -21,7 +21,7 @@ input int Slippage = 100;                     // スリッページ（Point）
 
 // ======== 機能制御設定 ========
 sinput group "== 2. 機能制御設定 =="
-input ON_OFF PositionProtection = OFF_MODE;   // 両建て禁止（OFF=両建て許可、ON=両建て禁止）
+input ON_OFF PositionProtection = ON_MODE;    // 両建て禁止（OFF=両建て許可、ON=両建て禁止）
 
 // ======== 有効証拠金関連の設定 ========
 sinput group "== 3. 有効証拠金設定 =="

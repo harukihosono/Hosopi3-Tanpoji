@@ -1,11 +1,11 @@
 # Hosopi3 タンポジ EA
 
-シンプルな単ポジション専用のMT4 Expert Advisor（EA）です。ナンピン・ゴースト機能を除外したシンプル版です。
+シンプルな単ポジション専用のMT4/MT5 Expert Advisor（EA）です。ナンピン・ゴースト機能を除外したシンプル版です。
 
 ## 概要
 
 - **バージョン**: 2.10
-- **プラットフォーム**: MetaTrader 4 (MQL4)
+- **プラットフォーム**: MetaTrader 4 (MQL4) / MetaTrader 5 (MQL5)
 - **タイプ**: 単ポジションEA（ナンピンなし）
 
 ## 主な機能
@@ -56,7 +56,8 @@
 
 ```
 Hosopi3-Tanpoji/
-├── Hosopi3_Tanpoji.mq4           # メインファイル
+├── Hosopi3_Tanpoji.mq4           # メインファイル（MT4用）
+├── Hosopi3_Tanpoji.mq5           # メインファイル（MT5用）
 ├── Hosopi3_Tanpoji_Defines.mqh   # 定数・列挙型定義
 ├── Hosopi3_Tanpoji_Params.mqh    # 入力パラメータ
 ├── Hosopi3_Tanpoji_Cache.mqh     # キャッシュ管理
@@ -65,13 +66,20 @@ Hosopi3-Tanpoji/
 ├── Hosopi3_Tanpoji_CustomIndicator.mqh  # 外部インジケーター連携
 ├── Hosopi3_Tanpoji_Strategy.mqh  # 戦略・シグナル判定
 ├── Hosopi3_Tanpoji_GUI.mqh       # GUI処理
-└── Hosopi3_Tanpoji_InfoPanel.mqh # インジケーターパネル
+├── Hosopi3_Tanpoji_InfoPanel.mqh # インジケーターパネル
+└── Hosopi3_Tanpoji_LightPanel.mqh # 軽量パネル（Comment表示）
 ```
 
 ## インストール
 
+### MT4の場合
 1. すべてのファイルを `MQL4/Experts/Hosopi3-Tanpoji/` フォルダにコピー
 2. MetaTrader 4を再起動、または「ナビゲータ」で右クリック→「更新」
+3. チャートにEAをドラッグ＆ドロップ
+
+### MT5の場合
+1. すべてのファイルを `MQL5/Experts/Hosopi3-Tanpoji/` フォルダにコピー
+2. MetaTrader 5を再起動、または「ナビゲータ」で右クリック→「更新」
 3. チャートにEAをドラッグ＆ドロップ
 
 ## 基本的な使い方

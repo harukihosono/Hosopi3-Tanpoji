@@ -108,7 +108,7 @@ bool CreateButton(string name, int x, int y, int width, int height, string text,
    ObjectSetInteger(0, name, OBJPROP_BORDER_COLOR, ColorDarken(bgColor, 30));
    ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, 9);
-   ObjectSetString(0, name, OBJPROP_FONT, "Arial Bold");
+   ObjectSetString(0, name, OBJPROP_FONT, "Meiryo UI");
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
 
    SaveObjectName(name, g_PanelNames, g_PanelObjectCount);
@@ -133,7 +133,7 @@ bool CreateLabel(string name, int x, int y, string text, color textColor, int fo
    ObjectSetInteger(0, name, OBJPROP_COLOR, textColor);
    ObjectSetInteger(0, name, OBJPROP_CORNER, CORNER_LEFT_UPPER);
    ObjectSetInteger(0, name, OBJPROP_FONTSIZE, fontSize);
-   ObjectSetString(0, name, OBJPROP_FONT, "Arial");
+   ObjectSetString(0, name, OBJPROP_FONT, "Meiryo UI");
    ObjectSetInteger(0, name, OBJPROP_SELECTABLE, false);
 
    SaveObjectName(name, g_PanelNames, g_PanelObjectCount);

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.md text eol=lf encoding=utf-8
+*.mq4 text eol=crlf
+*.mqh text eol=crlf
