@@ -279,8 +279,11 @@ void ProcessTakeProfit()
 
                if(profit >= tpPoints)
                {
-                  OrderClose(OrderTicket(), OrderLots(), currentPrice, Slippage, clrNONE);
-                  DebugLog(StringFormat("利確決済: Ticket %d, Profit: %.5f", OrderTicket(), profit));
+                  bool closeResult = OrderClose(OrderTicket(), OrderLots(), currentPrice, Slippage, clrNONE);
+                  if(closeResult)
+                     DebugLog(StringFormat("利確決済: Ticket %d, Profit: %.5f", OrderTicket(), profit));
+                  else
+                     DebugLog(StringFormat("利確決済失敗: Ticket %d, Error: %d", OrderTicket(), GetLastError()));
 
                   // 決済時間を記録
                   if(type == OP_BUY)
@@ -370,8 +373,10 @@ void ProcessTrailingStop()
                      double newSL = currentPrice - offsetPoints;
                      if(currentSL < newSL || currentSL == 0)
                      {
-                        OrderModify(OrderTicket(), openPrice, newSL, OrderTakeProfit(), 0, clrNONE);
-                        DebugLog(StringFormat("トレーリングSL更新 (BUY): %.5f -> %.5f", currentSL, newSL));
+                        if(OrderModify(OrderTicket(), openPrice, newSL, OrderTakeProfit(), 0, clrNONE))
+                           DebugLog(StringFormat("トレーリングSL更新 (BUY): %.5f -> %.5f", currentSL, newSL));
+                        else
+                           DebugLog(StringFormat("トレーリングSL更新失敗 (BUY): Error %d", GetLastError()));
                      }
                   }
                }
@@ -383,8 +388,10 @@ void ProcessTrailingStop()
                      double newSL = currentPrice + offsetPoints;
                      if(currentSL > newSL || currentSL == 0)
                      {
-                        OrderModify(OrderTicket(), openPrice, newSL, OrderTakeProfit(), 0, clrNONE);
-                        DebugLog(StringFormat("トレーリングSL更新 (SELL): %.5f -> %.5f", currentSL, newSL));
+                        if(OrderModify(OrderTicket(), openPrice, newSL, OrderTakeProfit(), 0, clrNONE))
+                           DebugLog(StringFormat("トレーリングSL更新 (SELL): %.5f -> %.5f", currentSL, newSL));
+                        else
+                           DebugLog(StringFormat("トレーリングSL更新失敗 (SELL): Error %d", GetLastError()));
                      }
                   }
                }

@@ -536,7 +536,7 @@ datetime GetLastEntryTime(int type)
 //+------------------------------------------------------------------+
 void DeleteObjectsByPrefix(string prefix)
 {
-   int total = ObjectsTotal(0);
+   int total = ObjectsTotal(0, -1, -1);
    for(int i = total - 1; i >= 0; i--)
    {
       string name = ObjectName(0, i);
